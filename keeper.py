@@ -17,13 +17,16 @@ class Human:
         else:
             self.income = 0
             self.spend = 0
-            print('Недостаточно средств')
+            raise ValueError('Недостаточно средств.')
         return print('Баланс:', self.__balance, 'руб.')
 
-    @property
-    def total_income(self):
-        return print('Общий доход:', self.__total_income, 'руб.')
-
-    @property
-    def total_spend(self):
-        return print('Общий расход:', self.__total_spend, 'руб.')
+    @keeper.setter
+    def keeper(self, value):
+        if value >= 0:
+            self.income = value
+            print('Приход:', self.income, 'руб.')
+            self.keeper
+        else:
+            self.spend = value * -1
+            print('Расход:', self.spend, 'руб.')
+            self.keeper
